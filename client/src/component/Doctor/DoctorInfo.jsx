@@ -45,7 +45,7 @@ export default function DoctorInfo() {
         
       </div>
     </div>
-  );
+  
       
     </div>
   )
