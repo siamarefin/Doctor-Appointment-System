@@ -272,7 +272,7 @@ useEffect(() => {
 }, []);
    
 
-                                        // Doctor Page Data 
+// Doctor Page Data 
 
 
 // console.log(previousHistory);

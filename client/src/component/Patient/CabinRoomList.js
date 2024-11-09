@@ -1,51 +1,47 @@
 import React from "react";
 import { useDataContext } from "@/context/DataContext";
+import "./style.css"; // Import the general table styles
 
 function CabinRoomList() {
   const { cabinRoomList } = useDataContext();
 
   return (
-    <div className="h-full flex flex-col rounded-lg overflow-hidden">
-    <div className="overflow-auto flex-grow">
-      <table className="w-full bg-white table-fixed border-collapse border ">
-        <thead className="bg-gray-700 text-center text-black sticky top-0">
-          <tr>
-            <th className="px-4 py-2 text-start border ">Cabin Name</th>
-            <th className="px-3 py-2 text-start border ">Room number</th>
-            <th className="px-3 py-2 text-start border ">Assigned Nurse ID</th>
-            <th className="px-3 py-2 text-start border ">Supervising Doctor ID</th>
-            <th className="px-3 py-2 text-start border ">Case Summary</th>
-            <th className="px-4 py-2 text-start border ">Bill</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cabinRoomList.map((cabin, index) => (
-            <tr key={index} className="text-center text-black">
-              <td className="border-b-2 px-4 py-2 text-start border  overflow-hidden whitespace-nowrap text-ellipsis">
-                {cabin.name}
-              </td>
-              <td className="border-b-2 px-3 py-2 text-start border  overflow-hidden whitespace-nowrap text-ellipsis">
-                {cabin.room_number}
-              </td>
-              <td className="border-b-2 px-3 py-2 text-start border  overflow-hidden whitespace-nowrap text-ellipsis">
-                {cabin.assigned_nurse}
-              </td>
-              <td className="border-b-2 px-4 py-2 text-start border  overflow-hidden whitespace-nowrap text-ellipsis">
-                {cabin.supervising_doctor}
-              </td>
-              <td className="border-b-2 px-4 py-2 text-start border  overflow-hidden whitespace-nowrap text-ellipsis">
-                {cabin.case_summary}
-              </td>
-              <td className="border-b-2 px-5 py-2 text-start border  overflow-hidden whitespace-nowrap text-ellipsis">
-                {cabin.bill}
-              </td>
+    <div className="table-container">
+      <div className="overflow-auto flex-grow">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Cabin Name</th>
+              <th>Room Number</th>
+              <th>Assigned Nurse ID</th>
+              <th>Supervising Doctor ID</th>
+              <th>Case Summary</th>
+              <th>Bill</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {cabinRoomList.length > 0 ? (
+              cabinRoomList.map((cabin, index) => (
+                <tr key={index} className="text-center hover:bg-blue-100">
+                  <td className="overflow-hidden">{cabin.name}</td>
+                  <td className="overflow-hidden">{cabin.room_number}</td>
+                  <td className="overflow-hidden">{cabin.assigned_nurse}</td>
+                  <td className="overflow-hidden">{cabin.supervising_doctor}</td>
+                  <td className="overflow-hidden">{cabin.case_summary}</td>
+                  <td className="overflow-hidden">{cabin.bill}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="no-data">
+                  No cabin rooms available.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  
   );
 }
 

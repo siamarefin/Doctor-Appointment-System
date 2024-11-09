@@ -1,0 +1,52 @@
+/* General Table Container */
+.table-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    color: #333333; /* Darker text color for readability */
+}
+
+/* Header Styling */
+.table thead {
+    background-color: #3b82f6; /* Blue header background */
+    color: #ffffff; /* White text for header */
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem 1rem; /* Padding for readability */
+    text-align: left;
+    border: 1px solid #CBD5E0; /* Light gray border */
+}
+
+.table tbody tr:hover {
+    background-color: #e5f0ff; /* Light blue hover effect */
+}
+
+/* Responsive Ellipsis for Overflowing Text */
+.overflow-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* No Data Styling */
+.no-data {
+    padding: 1rem;
+    text-align: center;
+    color: #6b7280; /* Neutral gray for empty data message */
+}

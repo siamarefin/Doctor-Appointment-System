@@ -1,5 +1,6 @@
 import React from "react";
 import { useDataContext } from "@/context/DataContext";
+import "./style.css"; // Import the general table styles
 
 function MyBill() {
   const { myBillList } = useDataContext();
@@ -11,42 +12,38 @@ function MyBill() {
   };
 
   return (
-    <div className="h-full flex flex-col rounded-lg overflow-hidden">
+    <div className="table-container">
       <div className="overflow-y-auto">
-        <table className="w-full table-auto border-collapse border ">
-          <thead className="sticky top-0 bg-gray-700 text-black">
+        <table className="table">
+          <thead>
             <tr>
-              <th className="px-4 py-2 text-start w-1/6 border ">Bill ID</th>
-              <th className="px-4 py-2 text-start w-1/6 border ">Date</th>
-              <th className="px-4 py-2 text-start w-1/6 border ">Amount</th>
-              <th className="px-4 py-2 text-start w-2/6 border ">Description</th>
-              <th className="px-4 py-2 text-start w-1/6 border ">Payment Status</th>
-              <th className="px-4 py-2 text-start w-1/6 border ">Method</th>
+              <th>Bill ID</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Description</th>
+              <th>Payment Status</th>
+              <th>Method</th>
             </tr>
           </thead>
-          <tbody className="bg-white">
-            {myBillList.map((bill, index) => (
-              <tr key={index} className="border-b border text-center text-black">
-                <td className="px-4 py-2 text-start  border  overflow-hidden whitespace-nowrap text-ellipsis">
-                  {bill.bill_id}
-                </td>
-                <td className="px-4 py-2 text-start  border overflow-hidden whitespace-nowrap text-ellipsis">
-                  {formatDate(bill.date)}
-                </td>
-                <td className="px-4 py-2 text-start border overflow-hidden whitespace-nowrap text-ellipsis">
-                  {bill.amount}
-                </td>
-                <td className="px-4 py-2 text-start border overflow-hidden whitespace-nowrap text-ellipsis">
-                  {bill.description}
-                </td>
-                <td className="px-4 py-2 text-start border overflow-hidden whitespace-nowrap text-ellipsis">
-                  {bill.paymentstatus}
-                </td>
-                <td className="px-4 py-2 text-start border overflow-hidden whitespace-nowrap text-ellipsis">
-                  {bill.method}
+          <tbody>
+            {myBillList.length > 0 ? (
+              myBillList.map((bill, index) => (
+                <tr key={index} className="text-center hover:bg-blue-100">
+                  <td className="overflow-hidden">{bill.bill_id}</td>
+                  <td className="overflow-hidden">{formatDate(bill.date)}</td>
+                  <td className="overflow-hidden">{bill.amount}</td>
+                  <td className="overflow-hidden">{bill.description}</td>
+                  <td className="overflow-hidden">{bill.paymentstatus}</td>
+                  <td className="overflow-hidden">{bill.method}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="no-data">
+                  No bills available.
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
