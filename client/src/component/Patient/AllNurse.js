@@ -6,7 +6,7 @@ function AllNurse() {
   const { nurseInfo } = useDataContext();
 
   return (
-    <div className="table-container">
+    <div className="table-container border">
       <div className="overflow-auto flex-grow">
         <table className="table">
           <thead>
@@ -32,7 +32,7 @@ function AllNurse() {
             ) : (
               <tr>
                 <td colSpan="5" className="no-data">
-                  No nurse information available.
+                  No nurse information available at this moment.
                 </td>
               </tr>
             )}
