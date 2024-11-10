@@ -60,7 +60,7 @@ export default function DoctorLogin() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-4">
-        <label htmlFor="Doctor-phone" className="block text-white tracking-wide">Doctor phone</label>
+        <label htmlFor="Doctor-phone" className="block text-black tracking-wide font-bold ">Doctor phone</label>
         <input
           type="text"
           id="Doctor-phone"
@@ -71,7 +71,7 @@ export default function DoctorLogin() {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="Doctor-password" className="block text-white tracking-wide">password</label>
+        <label htmlFor="Doctor-password" className="block text-black tracking-wide font-bold">password</label>
         <input
           type="password"
           id="Doctor-password"
@@ -82,7 +82,7 @@ export default function DoctorLogin() {
         />
       </div>
       <button type="submit" className="font-bold w-full bg-black text-white p-2 rounded-lg hover:bg-white hover:text-black transition-colors tracking-wider">
-        Sign in as Doctor
+        Sign IN
       </button>
     
 

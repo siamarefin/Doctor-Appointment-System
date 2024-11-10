@@ -7,7 +7,7 @@ export default function RegisterPage() {
 
   return (
     <div className=" p-6 rounded-3xl shadow-lg w-full max-w-96 border-2 border-black"
-    style={{ backgroundColor: "#075E54" }}>
+    style={{ backgroundColor: "#e2dfdf" }}>
       <div className="flex justify-around mb-4 border-b">
         <button
           className={`py-2 px-4 w-full text-center ${

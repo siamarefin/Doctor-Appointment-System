@@ -58,9 +58,9 @@ export default function PatientLogin() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
+    <form onSubmit={handleSubmit} className=" max-w-md mx-auto p-4 ">
       <div className="mb-4">
-        <label htmlFor="patient-username" className="block text-white tracking-wide">
+        <label htmlFor="patient-username" className="flex text-black tracking-wide font-bold">
           Patient phone
         </label>
         <input
@@ -73,7 +73,7 @@ export default function PatientLogin() {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="patient-password" className="block text-white tracking-wide">
+        <label htmlFor="patient-password" className="block text-black tracking-wide font-bold ">
           Password
         </label>
         <input
@@ -89,7 +89,7 @@ export default function PatientLogin() {
         type="submit"
         className="font-bold w-full bg-black text-white p-2 rounded-lg hover:bg-white hover:text-black transition-colors tracking-wider"
       >
-        Sign in
+        Sign IN
       </button>
       <div className="text-sm text-black text-center my-4 py-2">
         <p>
@@ -98,7 +98,7 @@ export default function PatientLogin() {
             href="/register"
             className="text-blue-500 font-semibold hover:underline ml-1"
           >
-            Sign up
+            Sign UP
           </Link>
         </p>
         

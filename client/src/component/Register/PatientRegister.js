@@ -53,7 +53,7 @@ export default function PatientRegister() {
     <div className="text-white ">
       <form onSubmit={handleSubmit}>
         <div className="mb-2">
-          <label htmlFor="name" className="block text-gray-700">
+          <label htmlFor="name" className="block text-gray-700 font-bold text-black">
             Name
           </label>
           <input
@@ -67,7 +67,7 @@ export default function PatientRegister() {
         </div>
 
         <div className="mb-2">
-          <label htmlFor="phone" className="block text-gray-700">
+          <label htmlFor="phone" className="block text-gray-700 font-bold text-black">
             Phone
           </label>
           <input
@@ -82,7 +82,7 @@ export default function PatientRegister() {
 
         <div className="flex justify-between mb-2 w-full space-x-2">
           <div className="w-1/2">
-            <label htmlFor="age" className="block text-gray-700">
+            <label htmlFor="age" className="block text-gray-700 font-bold text-black ">
               Age
             </label>
             <input
@@ -96,7 +96,7 @@ export default function PatientRegister() {
           </div>
 
           <div className="w-1/2">
-            <label htmlFor="gender" className="block text-gray-700">
+            <label htmlFor="gender" className="block text-gray-700 font-bold text-black ">
               Gender
             </label>
             <select
@@ -114,7 +114,7 @@ export default function PatientRegister() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700">
+          <label htmlFor="password" className="block text-gray-700 font-bold text-black ">
             Password
           </label>
           <input
@@ -129,7 +129,7 @@ export default function PatientRegister() {
 
         <button
           type="submit"
-          className="font-bold w-full bg-black text-white p-2 rounded-lg hover:bg-white hover:text-black transition-colors tracking-wider"
+          className="font-bold w-full bg-black text-white p-2 rounded-lg hover:bg-white hover:text-black transition-colors tracking-wider nfont-bold text-black"
         >
           Register as Patient
         </button>
@@ -141,7 +141,7 @@ export default function PatientRegister() {
               className="text-white font-semibold hover:underline "
               onClick={() => router.push("/login")}
             >
-              Sign in
+             Sign IN  
             </Link>
           </p>
         </div>
