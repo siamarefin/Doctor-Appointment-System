@@ -60,8 +60,6 @@ function Patient() {
         // Remove patient data from localStorage
         localStorage.removeItem("patient");
 
-        console.log("Logout successful:");
-
         // Redirect to  login
         router.push("/login");
       } else {
@@ -74,7 +72,7 @@ function Patient() {
   };
 
   return (
-    <div className="h-full w-full flex space-x-2 bg-slate-500 ">
+    <div className="h-full w-full flex space-x-2 bg-slate-600 ">
       <div className="w-1/5 flex flex-col h-full p-2  border-black space-y-2">
         <div className="h-auto bg-black flex justify-center items-center rounded-xl p-2 space-x-2">
           <h1 className="text-white font-bold text-2xl ">{patient.name}</h1>

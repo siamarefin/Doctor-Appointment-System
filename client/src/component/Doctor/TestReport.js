@@ -26,7 +26,7 @@ const TestReport = () => {
       }
     };
 
-    fetchPatientReport(); // Call the function inside useEffect
+    fetchPatientReport();
   }, []);
 
   // Filtered data based on search term
@@ -36,7 +36,7 @@ const filteredHistory = testReport.filter(row =>
 
   return (
     <div className="rounded-xl bg-gray-300">
-    <div className="mb-4 border rounded-xl">
+    <div className="mb-3 border rounded-xl">
       <input
         type="text"
         className="border text-black border-gray-400 rounded-xl p-2 w-full"

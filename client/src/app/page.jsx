@@ -29,7 +29,7 @@ function page() {
 
   return (
     <div className="flex text-center  h-screen bg-sky-400">
-      <h1 className="text-9xl text-white">Hospital Management System </h1>
+      <h1 className="text-9xl text-white">Doctor Appointment System </h1>
     </div>
   );
 }
