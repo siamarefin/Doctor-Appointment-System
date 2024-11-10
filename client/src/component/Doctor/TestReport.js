@@ -1,15 +1,13 @@
 "use client";
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-
+import "./style.css"; // Import the CSS file
 
 const TestReport = () => {
- 
-  const [testReport, settestReport] = useState([]);
+  const [testReport, setTestReport] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Fetch all patient history
+  // Fetch all patient reports
   useEffect(() => {
     const fetchPatientReport = async () => {
       try {
@@ -18,11 +16,12 @@ const TestReport = () => {
         });
 
         if (response.status === 200) {
-          settestReport(response.data.data); 
-          console.error('Failed to fetch testReport');
+          setTestReport(response.data.data);
+        } else {
+          console.error("Failed to fetch testReport");
         }
       } catch (error) {
-        console.error('Error fetching testReport data:', error);
+        console.error("Error fetching testReport data:", error);
       }
     };
 
@@ -30,58 +29,59 @@ const TestReport = () => {
   }, []);
 
   // Filtered data based on search term
-const filteredHistory = testReport.filter(row =>
-  String(row.patient_id).toLowerCase().includes(searchTerm.toLowerCase())
-);
+  const filteredHistory = testReport.filter((row) =>
+    String(row.patient_id).toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="rounded-xl bg-gray-300">
-    <div className="mb-3 border rounded-xl">
-      <input
-        type="text"
-        className="border text-black border-gray-400 rounded-xl p-2 w-full"
-        placeholder="Search by Patient ID..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-    </div>
-  
-    <div className="overflow-auto  " style={{ maxHeight: "500px" }}>
-      <table className="w-full table-auto">
-        <thead className="bg-black text-white text-center">
-          <tr>
-            <th className="px-4 py-2" style={{ textAlign: "left" }}>Report Id</th>
-            <th className="px-4 py-2" style={{ textAlign: "left" }}>Test name</th>
-            <th className="px-4 py-2" style={{ textAlign: "left" }}>Result</th>
-            <th className="px-4 py-2" style={{ textAlign: "left" }}>Amount</th>
-            <th className="px-4 py-2" style={{ textAlign: "left" }}>Comment</th>
-            <th className="px-4 py-2" style={{ textAlign: "left" }}>Patient Id</th>
-          </tr>
-        </thead>
-        <tbody className="bg-white text-center">
-          {filteredHistory.length > 0 ? (
-            filteredHistory.map((row, index) => (
-              <tr key={index} className="border text-black">
-                <td className="px-4 py-2 border">{row.report_id}</td>
-                <td className="px-4 py-2 border">{row.test_name}</td>
-                <td className="px-4 py-2 border">{row.result}</td>
-                <td className="px-4 py-2 border">{row.amount}</td>
-                <td className="px-4 py-2 border">{row.comment}</td>
-                <td className="px-4 py-2 border">{row.patient_id}</td>
-              </tr>
-            ))
-          ) : (
+    <div className="history-container">
+      <div className="mb-4">
+        <input
+          type="text"
+          className="history-search-input"
+          placeholder="Search by Patient ID..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+
+      <div className="overflow-auto" style={{ maxHeight: "500px" }}>
+        <table className="history-table">
+          <thead>
             <tr>
-              <td className="px-4 py-2 text-black text-center" colSpan="7">
-                No patients found with the given ID.
-              </td>
+              <th>Patient Id</th>
+              <th>Report Id</th>
+              <th>Test Name</th>
+              <th>Result</th>
+              <th>Amount</th>
+              <th>Comment</th>
+              
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredHistory.length > 0 ? (
+              filteredHistory.map((row, index) => (
+                <tr key={index} className="text-black">
+                  <td>{row.patient_id}</td>
+                  <td>{row.report_id}</td>
+                  <td>{row.test_name}</td>
+                  <td>{row.result}</td>
+                  <td>{row.amount}</td>
+                  <td>{row.comment}</td>
+                  
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td className="history-no-data" colSpan="6">
+                  No patients found with the given ID.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  
   );
 };
 

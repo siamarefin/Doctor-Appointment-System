@@ -1,0 +1,55 @@
+/* Container */
+.history-container {
+    background-color: #f3f4f6; /* Light gray background */
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+  
+  /* Search Input */
+  .history-search-input {
+    border: 1px solid #d1d5db; /* Light gray border */
+    color: #111827; /* Dark text */
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    outline: none;
+  }
+  
+  .history-search-input::placeholder {
+    color: #6b7280; /* Gray placeholder */
+  }
+  
+  /* Table */
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .history-table th,
+  .history-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid #e5e7eb; /* Light border for cells */
+  }
+  
+  .history-table th {
+    background-color: #1f2937; /* Dark header background */
+    color: #ffffff; /* White text */
+    font-weight: bold;
+  }
+  
+  .history-table tbody tr:nth-child(even) {
+    background-color: #f9fafb; /* Light background for even rows */
+  }
+  
+  .history-table tbody tr:hover {
+    background-color: #e5e7eb; /* Highlight row on hover */
+  }
+  
+  .history-no-data {
+    text-align: center;
+    color: #6b7280; /* Gray text for "No data" message */
+    padding: 1rem;
+  }
+  

@@ -111,7 +111,13 @@ function Doctor() {
             <TestReport onClose={() => setActiveComponent("")} />
           )}
         </div>
+        <div className="flex-shrink bg-white rounded-xl p-4 text-center text-gray-600 text-sm font-semibold flex flex-col justify-center items-center h-[15vh]">
+          <p>© {new Date().getFullYear()} Doctor Appointment System. All rights reserved.</p>
+          <p>Providing seamless and reliable healthcare appointment services.</p>
+          <p>Contact us: support@doctorappointment.com | +8801750526761</p>
+        </div>
       </div>
+      
     </div>
   );
 }
