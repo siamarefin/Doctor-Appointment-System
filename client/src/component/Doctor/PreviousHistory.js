@@ -29,7 +29,8 @@ const PriviousHistory = () => {
 
 // Filtered data based on search term
 const filteredHistory = previousHistory.filter(row =>
-  String(row.patient_id).toLowerCase().includes(searchTerm.toLowerCase())
+  // search by which value 
+  String(row.doctor_id).toLowerCase().includes(searchTerm.toLowerCase())
 );
 
   return (
@@ -38,7 +39,7 @@ const filteredHistory = previousHistory.filter(row =>
         <input
           type="text"
           className="border border-gray-400 text-black rounded-xl p-2 w-full"
-          placeholder="Search by Patient ID..."
+          placeholder="Search by Doctor ID..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -47,10 +48,11 @@ const filteredHistory = previousHistory.filter(row =>
         <table className="w-full table-auto border-collapse">
           <thead className="bg-gray-900 text-white">
             <tr>
+              <th className="px-4 py-2" style={{ textAlign: "left" }}>Doctor ID</th>
               <th className="px-4 py-2" style={{ textAlign: "left" }}>Patient ID</th>
               <th className="px-4 py-2" style={{ textAlign: "left" }}>Date of Record</th>
               <th className="px-4 py-2" style={{ textAlign: "left" }}>Treatment Given</th>
-              <th className="px-4 py-2" style={{ textAlign: "left" }}>Doctor ID</th>
+              
               <th className="px-4 py-2" style={{ textAlign: "left" }}>Previous Medicine</th>
               <th className="px-4 py-2" style={{ textAlign: "left" }}>Case Summary</th>
             </tr>
@@ -59,10 +61,11 @@ const filteredHistory = previousHistory.filter(row =>
             {filteredHistory.length > 0 ? (
               filteredHistory.map((row, index) => (
                 <tr key={index} className="border text-black">
+                  <td className="px-4 py-2 border">{row.doctor_id}</td>
                   <td className="px-4 py-2 border">{row.patient_id}</td>
                   <td className="px-4 py-2 border">{row.date_of_record}</td>
                   <td className="px-4 py-2 border">{row.treatment_given}</td>
-                  <td className="px-4 py-2 border">{row.doctor_id}</td>
+                  
                   <td className="px-4 py-2 border">{row.previous_medicine}</td>
                   <td className="px-4 py-2 border">{row.case_summary}</td>
                 </tr>

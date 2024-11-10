@@ -52,10 +52,9 @@ exports.logout = (req, res) => {
 // ===== Doctor Services =====
 // get all Patient History
 exports.getAllPatientHistory = (req, res) => {
-  const  doctor_id  = req.doctor.id;
-  const sql = 'SELECT * FROM previous_history WHERE doctor_id = ?';
+  const sql = 'SELECT * FROM previous_history';
 
-  db.query(sql, [doctor_id], (err, results) => {
+  db.query(sql, (err, results) => {
     if (err) {
       return res.status(500).json({ error: ' Database error ' });
     }
