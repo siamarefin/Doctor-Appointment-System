@@ -18,6 +18,18 @@ import axios from "axios";
 import PatientInfo from "@/component/Patient/PatientInfo";
 
 function Patient() {
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Function to go to the next image
+  const nextImage = () => {
+    setCurrentIndex((currentIndex + 1) % images.length);
+  };
+
+  // Function to go to the previous image
+  const prevImage = () => {
+    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+  };
   // const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // const openDialog = () => setIsDialogOpen(true);
@@ -79,9 +91,10 @@ function Patient() {
          
         </div>
         <div className="flex flex-col h-0 flex-grow bg-yellow-300 rounded-xl justify-between ">
-          <div className="flex justify-center underline items-center h-auto font-bold bg-black text-white rounded-t-xl px-4 py-2">
+          {/* <div className="flex justify-center underline items-center h-auto font-bold bg-black text-white rounded-t-xl px-4 py-2">
             Service name
-          </div>
+          </div> */}
+         
           <div className="bg-slate-700 flex-grow p-4 overflow-y-auto ">
             <button
               onClick={() => setActiveComponent("createAppointment")}
@@ -192,7 +205,7 @@ function Patient() {
       </div>
 
       <div className="w-4/5 h-full  py-2 pr-2 space-y-2 flex flex-col">
-        <div className="flex-shrink  rounded-xl p-2 text-2xl font-bold flex justify-center items-center">
+        <div className="flex-shrink bg-white rounded-xl p-2 text-2xl font-bold flex justify-center items-center">
          Patient Dashboard
         </div>
 
@@ -241,6 +254,12 @@ function Patient() {
             </div>
           )}
         </div>
+        <div className="flex-shrink bg-white rounded-xl p-4 text-center text-gray-600 text-sm font-semibold flex flex-col justify-center items-center h-[15vh]">
+          <p>© {new Date().getFullYear()} Doctor Appointment System. All rights reserved.</p>
+          <p>Providing seamless and reliable healthcare appointment services.</p>
+          <p>Contact us: support@doctorappointment.com | +8801750526761</p>
+        </div>
+
       </div>
     </div>
   );
