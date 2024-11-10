@@ -148,7 +148,7 @@ exports.getAppointmentsByPatientId = (req, res) => {
 
     res.status(200).json({
       message: 'Appointments retrieved successfully',
-      data: results
+      data: results 
     });
   });
 };
