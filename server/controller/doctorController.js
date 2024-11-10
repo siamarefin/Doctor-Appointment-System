@@ -52,15 +52,20 @@ exports.logout = (req, res) => {
 // ===== Doctor Services =====
 // get all Patient History
 exports.getAllPatientHistory = (req, res) => {
-  const sql = 'SELECT * FROM previous_history';
-  
-  db.query(sql, (err, results) => {
+  const  doctor_id  = req.doctor.id;
+  const sql = 'SELECT * FROM previous_history WHERE doctor_id = ?';
+
+  db.query(sql, [doctor_id], (err, results) => {
     if (err) {
-      return res.status(500).json({ error: 'Database error' });
+      return res.status(500).json({ error: ' Database error ' });
     }
-    
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: ' No previous_history found for you ' });
+    }
+
     res.status(200).json({
-      message: 'previous_history retrieved successfully',
+      message: ' Patient list  retrieved successfully ',
       data: results
     });
   });
