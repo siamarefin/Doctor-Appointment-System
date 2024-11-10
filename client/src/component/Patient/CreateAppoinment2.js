@@ -1,7 +1,7 @@
 "use client";
+import React, { useState,useContext} from "react";
 import { useDataContext } from "@/context/DataContext";
 import axios from "axios";
-import { useState } from "react";
 
 
 const CreateAppointmentForm = () => {
@@ -61,38 +61,40 @@ const handleSubmit = async(e) => {
 
 
   return (
-    <div className="  items-center justify-center h-full">
-      <div className="shadow-lg border-2 rounded-3xl p-6 w-10 max-w-sm">
+    <div className=" flex items-center justify-center h-full">
+      <div className="shadow-lg border-2 rounded-3xl p-6 w-3/5 max-w-sm">
         <h2 className="text-2xl font-bold text-center mb-6 text-black border-b-2 tracking-widest">
           Create Appointment
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="doctor" className="block text-black tracking-wide">
+            <label htmlFor="doctor" className="flex p-2 text-black tracking-wide font-bold">
               Doctor Name
             </label>
-  <select
-  id="doctor"
-  value={doctor_id}
-  onChange={(e) => setdoctor_id(e.target.value)}
-  className="w-full text-black px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500"
-  required
->
-  <option value="" disabled>
-    Select a Doctor
-  </option>
-  {doctorInfo.map((doctor, index) => (
-    <option key={index} value={doctor.doctor_id}>
-      {doctor.name}
-    </option>
-  ))}
-</select>
+          <select
+          id="doctor"
+          value={doctor_id}
+          onChange={(e) => setdoctor_id(e.target.value)}
+          className="w-full text-black px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500"
+          required
+        >
+        <option value="" disabled>
+          Select a Doctor
+        </option>
+        {doctorInfo.map((doctor, index) => (
+          <option key={index} value={doctor.doctor_id}>
+            {doctor.name}
+          </option>
+        ))}
+      </select>
+
+
 
           </div>
 
           {/* Date Input */}
           <div className="mb-4">
-            <label htmlFor="date" className="block text-black tracking-wide">
+            <label htmlFor="date"  className="flex p-2 text-black tracking-wide text-center font-bold">
               Appointment Date
             </label>
             <input
@@ -106,7 +108,7 @@ const handleSubmit = async(e) => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="time" className="block text-black tracking-wide">
+            <label htmlFor="time" className="flex p-2  text-black tracking-wide font-bold">
               Select a Time
             </label>
             <input
@@ -121,7 +123,7 @@ const handleSubmit = async(e) => {
 
           {/* Description Input */}
           <div className="mb-4">
-            <label htmlFor="description" className="block text-black tracking-wide">
+            <label htmlFor="description" className="flex p-2 text-black tracking-wide font-bold">
               Description
             </label>
             <textarea
