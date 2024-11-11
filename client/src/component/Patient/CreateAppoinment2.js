@@ -132,7 +132,7 @@ const handleSubmit = async(e) => {
               onChange={(e) => setDescription(e.target.value)}
               className="w-full text-black px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500"
               rows="3"
-              placeholder="Enter appointment details or description"
+              placeholder="Enter disease details "
               required
             />
           </div>
